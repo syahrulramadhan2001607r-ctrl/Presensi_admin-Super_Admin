@@ -1,0 +1,13 @@
+# Pengaman tingkat proyek
+Options -Indexes
+
+# Berkas dokumentasi/SQL/log tidak boleh diunduh dari web
+<FilesMatch "\.(sql|md|log|bak|ini|sh)$">
+    <IfModule mod_authz_core.c>
+        Require all denied
+    </IfModule>
+    <IfModule !mod_authz_core.c>
+        Order allow,deny
+        Deny from all
+    </IfModule>
+</FilesMatch>
